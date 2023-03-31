@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><?xml-stylesheet href="/feed_style.xsl" type="text/xsl"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="https://www.rssboard.org/media-rss">
+  <channel>
+    <title>Medalhas&#39;s memory dump</title>
+    <link>http://example.org/</link>
+    <description>Recent content on Medalhas&#39;s memory dump</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 15 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" /><icon>http://example.org/img/icon.svg</icon>
+    
+    
+    <item>
+      <title>Thoughts About Remote Work</title>
+      <link>http://example.org/posts/thoughts-about-remote-work/</link>
+      <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/posts/thoughts-about-remote-work/</guid>
+      <description><![CDATA[<h2 id="summary">Summary</h2>
+<p>The Covid-19 vírus force us to make some changes in our lives, one of them it’s to stay safe at home and favor the remote work.</p>
+<p>This is a subject that caught my attention recently as I work daily with people spread across remote locations and us as a team had to adapt.</p>
+<p>Working remotely has many advantages, like the time we save in commuting, optimize the focus time as we can fewer interruptions, more environment-friendly, people can be better distributed across the countries and not so concentrated in big urban areas and other many more that I just can’t remember.</p>
+<p>I must advise you that I am not a fan of remote work as I miss the contact with the team, but I see it as inevitable in the future.</p>
+<p>But it also has many challenges, the lack of social interaction with teammates could lead to a less sense of belonging and affect the teamwork, the home has too many distractions and it demands great discipline, communication also can be challenging as it sometimes it’s just easier to talk or draw a picture.</p>
+<p>Some actions can help you face these challenges:</p>
+<ul>
+<li>Have a dedicated and appropriate space to work;</li>
+<li>Create a routine as you’re going to the office, set a wake-up hour, take a bath and dress up, so that you have a work mindset;</li>
+<li>Set hours to start and stop working;</li>
+<li>Try to go to the cafe or take lunch with a friend, socialize with others.</li>
+<li>Make sure you have access to all the tools you need to perform your work (VPN or cloud)</li>
+<li>Choose the proper tools for communicating and collaborate with your teammates (BlueJeans, Slack, Zoom, Miro).</li>
+</ul>
+<p>It’s important to have your home office well defined, it should be a quiet space without distractions. This is important for you to achieve the focus and take advantage of working at home and be free of office distractions.</p>
+<p>Communication with your teammates should be clear so be aware to use proper tools, like a headset with a microphone, be sure to mute your mic when your teammates are talking. It’s important to have your camera on to be more engaged with the team.</p>
+<p>The set a schedule it’s also an essential issue as it force you to have a discipline to time to start but also, and not less important, to have time to stop as we don’t want to burnout.</p>
+<h2 id="stay-at-home-with-kids">Stay at home with kids</h2>
+<p>At this time the challenges are even bigger because we should avoid contact with other people and because schools are closed I have to stay at home with the kids.</p>
+<p>In my case, an 11-year-old girl and 5-year-old boy, so at this point taking care of kids and work, looks like two incompatible ideas. I’m in a mix of kind of worried and kind of curious and challenged how it’s going to work.</p>
+<p>So I’ve started to I’ve explained to them that although I’m at home I’m working and we worked together in an agreement when they can interrupt me. I have the luck that my kids are very mature for their age but they’re kids anyway.</p>
+<p>I will see how it goes…</p>
+<h2 id="some-tools-that-can-help-you">Some tools that can help you</h2>
+<ul>
+<li><a href="https://slack.com/">Slack</a></li>
+<li><a href="https://www.bluejeans.com/">BlueJeans</a></li>
+<li><a href="https://www.zoom.us/">Zoom</a></li>
+<li><a href="https://miro.com/">Miro</a></li>
+<li><a href="https://funretro.io/">FunRetro</a></li>
+</ul>
+]]></description>
+      
+    </item>
+    
+    
+    
+    <item>
+      <title>About me</title>
+      <link>http://example.org/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>http://example.org/about/</guid>
+      <description><![CDATA[<p>My name is <strong>Luís Medalhas</strong> and Engineer Lead on <a href="https://www.farfetch.com/">Farfetch</a> and a career since 1998. This site is a tool to express some thoughts about several subjects that I care.
+To write is a way to structure my thougths and investigate, some of them reflect personal experience.</p>
+]]></description>
+      
+    </item>
+    
+    
+    
+    
+    
+    
+  </channel>
+</rss>

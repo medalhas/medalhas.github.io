@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>feedback on Medalhas&#39;s memory dump</title>
+    <link>http://example.org/tags/feedback/</link>
+    <description>Recent content in feedback on Medalhas&#39;s memory dump</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 02 Mar 2023 22:28:12 +0000</lastBuildDate><atom:link href="http://example.org/tags/feedback/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>The gentle art of giving feedback!</title>
+      <link>http://example.org/posts/the-gentle-art-of-giving-feedback/</link>
+      <pubDate>Thu, 02 Mar 2023 22:28:12 +0000</pubDate>
+      
+      <guid>http://example.org/posts/the-gentle-art-of-giving-feedback/</guid>
+      <description>What is feedback and why is important? Feedback, by definition, is information given to someone about their performance or behavior to help them to improve and thrive in the future.
+Positive feedback vs Negative feedback Commonly we use the terms positive feedback or negative feedback, I don&amp;rsquo;t love those terms, good feedback can&amp;rsquo;t be negative, and sometimes the &amp;ldquo;positive&amp;rdquo; feedback might not be that positive. I prefer to split them by the objective, so we have:</description>
+    </item>
+    
+  </channel>
+</rss>
