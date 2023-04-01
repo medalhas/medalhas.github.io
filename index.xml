@@ -1,19 +1,68 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><?xml-stylesheet href="/feed_style.xsl" type="text/xsl"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="https://www.rssboard.org/media-rss">
   <channel>
     <title>Medalhas&#39;s memory dump</title>
-    <link>http://example.org/</link>
+    <link>https://medalhas.github.io/</link>
     <description>Recent content on Medalhas&#39;s memory dump</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 15 Mar 2020 00:00:00 +0000</lastBuildDate><atom:link href="http://example.org/index.xml" rel="self" type="application/rss+xml" /><icon>http://example.org/img/icon.svg</icon>
+    <lastBuildDate>Fri, 31 Mar 2023 22:28:12 +0000</lastBuildDate><atom:link href="https://medalhas.github.io/index.xml" rel="self" type="application/rss+xml" /><icon>https://medalhas.github.io/img/icon.svg</icon>
+    
+    
+    <item>
+      <title>The gentle art of giving feedback!</title>
+      <link>https://medalhas.github.io/posts/the-gentle-art-of-giving-feedback/</link>
+      <pubDate>Fri, 31 Mar 2023 22:28:12 +0000</pubDate>
+      
+      <guid>https://medalhas.github.io/posts/the-gentle-art-of-giving-feedback/</guid>
+      <description><![CDATA[<h2 id="what-is-feedback-and-why-is-important">What is feedback and why is important?</h2>
+<p>Feedback, by definition, is information given to someone about their performance or behavior to help them to improve and thrive in the future.</p>
+<h2 id="positive-feedback-vs-negative-feedback">Positive feedback vs Negative feedback</h2>
+<p>Commonly we use the terms positive feedback or negative feedback, I don&rsquo;t love those terms, good feedback can&rsquo;t be negative.</p>
+<p>I prefer to split them by the objective, so we have:</p>
+<ul>
+<li>Growth feedback</li>
+<li>Praise feedback</li>
+</ul>
+<h3 id="growth-feedback">Growth feedback</h3>
+<p>They have different objectives, the first one is to help the subject to improve and grow in their career, it&rsquo;s fundamental for a manager to give growth feedback.
+One common mistake is to confuse feedback with a reprimand, this is important to maintain the focus on the objective of the feedback, as it has the goal for the other party to listen, understand and take actions to improve the performance or the behavior, so the communication must be clear, with the right tone and the right message.</p>
+<h4 id="tone-of-voice">Tone of Voice</h4>
+<p>Your tone of voice expresses your emotions or feelings and encompasses not only the words you choose but also the way deliver them.
+The way you speak a message is as important as the message itself. It means that you can convey different meanings or emotions based on the tone of your voice, even if you use the same words.  Therefore, when delivering a message, paying attention to both the words and the tone you use is essential to ensure that your message is received as intended.</p>
+<p>Even if the message itself is well-crafted, if it is delivered in an aggressive tone, the receiver will most likely react defensively, and the intended meaning may be lost.
+The amygdala, the part of the brain responsible for processing emotions, will be the first to respond to a message delivered in an aggressive tone. However, to ensure that the intended message is understood, it is crucial to communicate with the prefrontal cortex, the part of the brain responsible for rational thinking.</p>
+<p>In conclusion, the way you deliver a message is just as crucial as the message itself, and it is important to keep in mind that the tone in which you deliver the message can either facilitate or hinder effective communication. By being mindful of your tone of voice, you can improve your ability to give feedback effectively to others.</p>
+<h4 id="how-to-build-your-message">How to build your message?</h4>
+<p>The Situation-Behavior-Impact (SBI) framework is a simple and effective way to give feedback. It consists of three parts:</p>
+<ol>
+<li><strong>Situation</strong>: Explain the context where the behavior occurred, this helps to set the stage for the feedback and helps the receiver to understand the specific situation where the behavior was observed.</li>
+<li><strong>Behavior</strong>: Explain the observed behavior, be objective and limited to facts, and keep out opinions or judgments.</li>
+<li><strong>Impact</strong>: This is the effect or consequence of the behavior, explain how the behavior impacted others or the situation.</li>
+</ol>
+<p>Using this framework will help you to deliver very specific, objective, and constructive feedback that helps the receiver understand the impact of their behavior and how to improve it.</p>
+<h3 id="praise-feedback">Praise feedback</h3>
+<p>Forgotten by some managers and overused by others, praise feedback has the goal to:</p>
+<ul>
+<li>Motivate</li>
+<li>Build confidence</li>
+<li>Encourage the good behavior</li>
+</ul>
+<p>With that being said those three factors will increase the productivity of an individual or the team, they&rsquo;ll feel that their work/behavior was appreciated and awareness that they are on the right path and will be more confident to take more risks and encourage them to repeat the good behavior.</p>
+<p>I&rsquo;ve started this section by saying that some managers overused it, and this can be dangerous and counterproductive in the long term.
+When praise feedback is given too often or without meaningful substance, it can lead to a culture of complacency, where individuals expect to be praised for the most basic tasks. And in the long term can lead to a decrease in motivation and effort, as individuals may feel that their efforts are already being recognized and appreciated, and therefore they may not see the need to strive for better performance.</p>
+<p>When giving praise feedback we can use the same Situation-Behavior-Impact (SBI) framework described previously. Don&rsquo;t just say &ldquo;good job&rdquo;, be specific about the situation and behavior and explain the positive impact.</p>
+]]></description>
+      
+    </item>
+    
     
     
     <item>
       <title>Thoughts About Remote Work</title>
-      <link>http://example.org/posts/thoughts-about-remote-work/</link>
+      <link>https://medalhas.github.io/posts/thoughts-about-remote-work/</link>
       <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/posts/thoughts-about-remote-work/</guid>
+      <guid>https://medalhas.github.io/posts/thoughts-about-remote-work/</guid>
       <description><![CDATA[<h2 id="summary">Summary</h2>
 <p>The Covid-19 vírus force us to make some changes in our lives, one of them it’s to stay safe at home and favor the remote work.</p>
 <p>This is a subject that caught my attention recently as I work daily with people spread across remote locations and us as a team had to adapt.</p>
@@ -53,10 +102,10 @@
     
     <item>
       <title>About me</title>
-      <link>http://example.org/about/</link>
+      <link>https://medalhas.github.io/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>http://example.org/about/</guid>
+      <guid>https://medalhas.github.io/about/</guid>
       <description><![CDATA[<p>My name is <strong>Luís Medalhas</strong> and Engineer Lead on <a href="https://www.farfetch.com/">Farfetch</a> and a career since 1998. This site is a tool to express some thoughts about several subjects that I care.
 To write is a way to structure my thougths and investigate, some of them reflect personal experience.</p>
 ]]></description>

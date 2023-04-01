@@ -9,7 +9,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
         <meta charset="UTF-8"/>
         
-        <link type="text/css" rel="stylesheet" href="http://example.org/css/styles.ca167e75894fbcb5d2e3a70308e5ecb619d8a01255b35bc0c1ee3e5689d6733ad761d87887830b5ec3fe00c0ecae002cea1fd2e033af77ec194b46e28ddd0d02.css" integrity="sha512-yhZ+dYlPvLXS46cDCOXsthnYoBJVs1vAwe4+VonWczrXYdh4h4MLXsP+AMDsrgAs6h/S4DOvd+wZS0bijd0NAg==" />
+        <link type="text/css" rel="stylesheet" href="https://medalhas.github.io/css/styles.ca167e75894fbcb5d2e3a70308e5ecb619d8a01255b35bc0c1ee3e5689d6733ad761d87887830b5ec3fe00c0ecae002cea1fd2e033af77ec194b46e28ddd0d02.css" integrity="sha512-yhZ+dYlPvLXS46cDCOXsthnYoBJVs1vAwe4+VonWczrXYdh4h4MLXsP+AMDsrgAs6h/S4DOvd+wZS0bijd0NAg==" />
         <style>
           .aboutfeeds {
             margin: 24px 0; padding: 12px;

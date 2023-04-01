@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "styles.css",
-	"sourceRoot": "/Users/luis.medalhas/Sources/articles",
+	"sourceRoot": "/Users/luis.medalhas/Sources/static-site",
 	"sources": [
 		"themes/ficurinia/assets/scss/style.scss"
 	],

@@ -2,19 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>leadership on Medalhas&#39;s memory dump</title>
-    <link>http://example.org/tags/leadership/</link>
+    <link>https://medalhas.github.io/tags/leadership/</link>
     <description>Recent content in leadership on Medalhas&#39;s memory dump</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Mar 2023 22:28:12 +0000</lastBuildDate><atom:link href="http://example.org/tags/leadership/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 31 Mar 2023 22:28:12 +0000</lastBuildDate><atom:link href="https://medalhas.github.io/tags/leadership/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>The gentle art of giving feedback!</title>
-      <link>http://example.org/posts/the-gentle-art-of-giving-feedback/</link>
-      <pubDate>Thu, 02 Mar 2023 22:28:12 +0000</pubDate>
+      <link>https://medalhas.github.io/posts/the-gentle-art-of-giving-feedback/</link>
+      <pubDate>Fri, 31 Mar 2023 22:28:12 +0000</pubDate>
       
-      <guid>http://example.org/posts/the-gentle-art-of-giving-feedback/</guid>
+      <guid>https://medalhas.github.io/posts/the-gentle-art-of-giving-feedback/</guid>
       <description>What is feedback and why is important? Feedback, by definition, is information given to someone about their performance or behavior to help them to improve and thrive in the future.
-Positive feedback vs Negative feedback Commonly we use the terms positive feedback or negative feedback, I don&amp;rsquo;t love those terms, good feedback can&amp;rsquo;t be negative, and sometimes the &amp;ldquo;positive&amp;rdquo; feedback might not be that positive. I prefer to split them by the objective, so we have:</description>
+Positive feedback vs Negative feedback Commonly we use the terms positive feedback or negative feedback, I don&amp;rsquo;t love those terms, good feedback can&amp;rsquo;t be negative.
+I prefer to split them by the objective, so we have:
+Growth feedback Praise feedback Growth feedback They have different objectives, the first one is to help the subject to improve and grow in their career, it&amp;rsquo;s fundamental for a manager to give growth feedback.</description>
     </item>
     
   </channel>
