@@ -1,7 +1,7 @@
 {
   "$schema": "https://json.schemastore.org/web-manifest-combined.json",
-  "name": "Medalhas's memory dump",
-  "short_name": "Medalhas's memory dump",
+  "name": "The Code Chronicle",
+  "short_name": "The Code Chronicle",
   "start_url": "/",
   "display": "standalone",
   

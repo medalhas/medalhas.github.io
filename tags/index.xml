@@ -1,47 +1,96 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on Medalhas&#39;s memory dump</title>
+    <title>Tags on The Code Chronicle</title>
     <link>https://medalhas.github.io/tags/</link>
-    <description>Recent content in Tags on Medalhas&#39;s memory dump</description>
+    <description>Recent content in Tags on The Code Chronicle</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 31 Mar 2023 22:28:12 +0000</lastBuildDate><atom:link href="https://medalhas.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 31 Mar 2024 18:36:02 +0100</lastBuildDate>
+    <atom:link href="https://medalhas.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>feedback</title>
+      <title>Actuator</title>
+      <link>https://medalhas.github.io/tags/actuator/</link>
+      <pubDate>Sun, 31 Mar 2024 18:36:02 +0100</pubDate>
+      <guid>https://medalhas.github.io/tags/actuator/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Camel</title>
+      <link>https://medalhas.github.io/tags/camel/</link>
+      <pubDate>Sun, 31 Mar 2024 18:36:02 +0100</pubDate>
+      <guid>https://medalhas.github.io/tags/camel/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Grafana</title>
+      <link>https://medalhas.github.io/tags/grafana/</link>
+      <pubDate>Sun, 31 Mar 2024 18:36:02 +0100</pubDate>
+      <guid>https://medalhas.github.io/tags/grafana/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Java</title>
+      <link>https://medalhas.github.io/tags/java/</link>
+      <pubDate>Sun, 31 Mar 2024 18:36:02 +0100</pubDate>
+      <guid>https://medalhas.github.io/tags/java/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Monitoring</title>
+      <link>https://medalhas.github.io/tags/monitoring/</link>
+      <pubDate>Sun, 31 Mar 2024 18:36:02 +0100</pubDate>
+      <guid>https://medalhas.github.io/tags/monitoring/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Prometheus</title>
+      <link>https://medalhas.github.io/tags/prometheus/</link>
+      <pubDate>Sun, 31 Mar 2024 18:36:02 +0100</pubDate>
+      <guid>https://medalhas.github.io/tags/prometheus/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Spring</title>
+      <link>https://medalhas.github.io/tags/spring/</link>
+      <pubDate>Sun, 31 Mar 2024 18:36:02 +0100</pubDate>
+      <guid>https://medalhas.github.io/tags/spring/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Springboot</title>
+      <link>https://medalhas.github.io/tags/springboot/</link>
+      <pubDate>Sun, 31 Mar 2024 18:36:02 +0100</pubDate>
+      <guid>https://medalhas.github.io/tags/springboot/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Feedback</title>
       <link>https://medalhas.github.io/tags/feedback/</link>
       <pubDate>Fri, 31 Mar 2023 22:28:12 +0000</pubDate>
-      
       <guid>https://medalhas.github.io/tags/feedback/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>leadership</title>
+      <title>Leadership</title>
       <link>https://medalhas.github.io/tags/leadership/</link>
       <pubDate>Fri, 31 Mar 2023 22:28:12 +0000</pubDate>
-      
       <guid>https://medalhas.github.io/tags/leadership/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>remote</title>
+      <title>Remote</title>
       <link>https://medalhas.github.io/tags/remote/</link>
       <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://medalhas.github.io/tags/remote/</guid>
       <description></description>
     </item>
-    
     <item>
-      <title>remotework</title>
+      <title>Remotework</title>
       <link>https://medalhas.github.io/tags/remotework/</link>
       <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://medalhas.github.io/tags/remotework/</guid>
       <description></description>
     </item>
-    
   </channel>
 </rss>

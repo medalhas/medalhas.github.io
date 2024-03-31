@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Monitoring on The Code Chronicle</title>
+    <link>https://medalhas.github.io/tags/monitoring/</link>
+    <description>Recent content in Monitoring on The Code Chronicle</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 31 Mar 2024 18:36:02 +0100</lastBuildDate>
+    <atom:link href="https://medalhas.github.io/tags/monitoring/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Monitoring a Camel application with Prometheus</title>
+      <link>https://medalhas.github.io/posts/monitoring-spring-camel-apps-with-prometheus/</link>
+      <pubDate>Sun, 31 Mar 2024 18:36:02 +0100</pubDate>
+      <guid>https://medalhas.github.io/posts/monitoring-spring-camel-apps-with-prometheus/</guid>
+      <description>Introduction Why monitoring? In software engineering monitoring plays an important role in fault detection, performance improvements, the health of an application, resource planning, and based on the previous continuous improvements of the application. Having an application in a live environment it&amp;rsquo;s important to have observability to understand how our application behaves and also for a quick response.&#xA;How can we do it? We have several ways and tools at our disposal that we can use to monitor an application:</description>
+    </item>
+  </channel>
+</rss>

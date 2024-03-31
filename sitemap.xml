@@ -2,19 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://medalhas.github.io/tags/actuator/</loc>
+    <lastmod>2024-03-31T18:36:02+01:00</lastmod>
+  </url><url>
+    <loc>https://medalhas.github.io/tags/camel/</loc>
+    <lastmod>2024-03-31T18:36:02+01:00</lastmod>
+  </url><url>
+    <loc>https://medalhas.github.io/tags/grafana/</loc>
+    <lastmod>2024-03-31T18:36:02+01:00</lastmod>
+  </url><url>
+    <loc>https://medalhas.github.io/tags/java/</loc>
+    <lastmod>2024-03-31T18:36:02+01:00</lastmod>
+  </url><url>
+    <loc>https://medalhas.github.io/tags/monitoring/</loc>
+    <lastmod>2024-03-31T18:36:02+01:00</lastmod>
+  </url><url>
+    <loc>https://medalhas.github.io/posts/monitoring-spring-camel-apps-with-prometheus/</loc>
+    <lastmod>2024-03-31T18:36:02+01:00</lastmod>
+  </url><url>
+    <loc>https://medalhas.github.io/posts/</loc>
+    <lastmod>2024-03-31T18:36:02+01:00</lastmod>
+  </url><url>
+    <loc>https://medalhas.github.io/tags/prometheus/</loc>
+    <lastmod>2024-03-31T18:36:02+01:00</lastmod>
+  </url><url>
+    <loc>https://medalhas.github.io/tags/spring/</loc>
+    <lastmod>2024-03-31T18:36:02+01:00</lastmod>
+  </url><url>
+    <loc>https://medalhas.github.io/tags/springboot/</loc>
+    <lastmod>2024-03-31T18:36:02+01:00</lastmod>
+  </url><url>
+    <loc>https://medalhas.github.io/tags/</loc>
+    <lastmod>2024-03-31T18:36:02+01:00</lastmod>
+  </url><url>
+    <loc>https://medalhas.github.io/</loc>
+    <lastmod>2024-03-31T18:36:02+01:00</lastmod>
+  </url><url>
     <loc>https://medalhas.github.io/tags/feedback/</loc>
     <lastmod>2023-03-31T22:28:12+00:00</lastmod>
   </url><url>
     <loc>https://medalhas.github.io/tags/leadership/</loc>
-    <lastmod>2023-03-31T22:28:12+00:00</lastmod>
-  </url><url>
-    <loc>https://medalhas.github.io/</loc>
-    <lastmod>2023-03-31T22:28:12+00:00</lastmod>
-  </url><url>
-    <loc>https://medalhas.github.io/posts/</loc>
-    <lastmod>2023-03-31T22:28:12+00:00</lastmod>
-  </url><url>
-    <loc>https://medalhas.github.io/tags/</loc>
     <lastmod>2023-03-31T22:28:12+00:00</lastmod>
   </url><url>
     <loc>https://medalhas.github.io/posts/the-gentle-art-of-giving-feedback/</loc>
