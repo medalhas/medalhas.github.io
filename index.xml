@@ -1,365 +1,47 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><?xml-stylesheet href="/feed_style.xsl" type="text/xsl"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:media="https://www.rssboard.org/media-rss">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>The Code Chronicle</title>
     <link>https://medalhas.github.io/</link>
     <description>Recent content on The Code Chronicle</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 31 Mar 2024 18:36:02 +0100</lastBuildDate><atom:link href="https://medalhas.github.io/index.xml" rel="self" type="application/rss+xml" /><icon>https://medalhas.github.io/img/icon.svg</icon>
-    
-    
+    <lastBuildDate>Tue, 02 Apr 2024 20:17:00 +0100</lastBuildDate>
+    <atom:link href="https://medalhas.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Monitoring a Camel application with Prometheus</title>
+      <title>Welcome to Medalhas&#39;s Curated Collection</title>
+      <link>https://medalhas.github.io/bookmarks/</link>
+      <pubDate>Tue, 02 Apr 2024 20:17:00 +0100</pubDate>
+      <guid>https://medalhas.github.io/bookmarks/</guid>
+      <description>I&amp;rsquo;m thrilled to share with you my curated collection of bookmarks with articles and videos that have caught my attention and fueled my curiosity.&#xA;Within thix page, you&amp;rsquo;ll find a diverse range of content spanning various topics, from technology, leadership and productivity. Each link represents a doorway to a world of knowledge, offering insights, perspectives, and discoveries that have resonated with me on a personal and professional level.&#xA;Guys that I follow Scott Hanselman Blog Simon Sinek - Youtube channel Theo - Youtube channel Nick Chapsas - Youtube channel about C# The PrimeTimeagen - Youtube channel about tech Documentaries Node.</description>
+    </item>
+    <item>
+      <title>About Me</title>
+      <link>https://medalhas.github.io/about-me/</link>
+      <pubDate>Sun, 31 Mar 2024 22:07:05 +0100</pubDate>
+      <guid>https://medalhas.github.io/about-me/</guid>
+      <description>About me Hi, I&amp;rsquo;m Luis Medalhas. I&amp;rsquo;ve been in software engineering for more than 20 years. Throughout my career, I&amp;rsquo;ve worked from small companies to large corporations, each of them contributing to my growth.&#xA;For 4 years, I had the opportunity to work as an engineering lead, a position that allowed me to mix my passion for managing people with my love for technical challenges. While I thrived in leading teams, I tried for staying connected with the technical stuff of the projects, ensuring that I remain hands-on with the development process.</description>
+    </item>
+    <item>
+      <title>📈 Monitoring a Camel application with Prometheus</title>
       <link>https://medalhas.github.io/posts/monitoring-spring-camel-apps-with-prometheus/</link>
       <pubDate>Sun, 31 Mar 2024 18:36:02 +0100</pubDate>
-      
       <guid>https://medalhas.github.io/posts/monitoring-spring-camel-apps-with-prometheus/</guid>
-      <description><![CDATA[<h2 id="introduction">Introduction</h2>
-<h3 id="why-monitoring">Why monitoring?</h3>
-<p>In software engineering monitoring plays an important role in fault detection, performance improvements, the health of an application, resource planning, and based on the previous continuous improvements of the application.
-Having an application in a live environment it&rsquo;s important to have observability to understand how our application behaves and also for a quick response.</p>
-<h3 id="how-can-we-do-it">How can we do it?</h3>
-<p>We have several ways and tools at our disposal that we can use to monitor an application:</p>
-<ul>
-<li>Logging</li>
-<li>Collect metrics from the application</li>
-<li>Alerts</li>
-<li>Visualization of overall health and performance of the application</li>
-</ul>
-<p>There are tools for all tastes and styles that cover all the topics above, in the article I&rsquo;ll focus on the last 3 and we&rsquo;re going to use Prometheus and Grafana to accomplish this.</p>
-<h3 id="what-is-prometheus">What is Prometheus?</h3>
-<p>Prometheus is an <a href="https://github.com/prometheus/prometheus">open-source tool written in Go</a> and created by SoundCloud to improve the reliability of their services, and they always return to the same topic, observability.
-Prometheus has a built-in time series database, powered by query language (PromQL), alerts and alert manager, and a pull-based metric collection mechanism.</p>
-<p>If you are interested in the story of Prometheus, you can check <a href="https://youtu.be/rT4fJNbfe14">Prometheus: The Documentary</a>.</p>
-<h3 id="what-is-grafana">What is Grafana?</h3>
-<p>Grafana is an open-source analytics and visualization platform designed for monitoring and observability. Users may query, visualize metrics, and create dashboards and alerts. Connects to various data sources, but It&rsquo;s a perfect marriage for Prometheus.</p>
-<h3 id="what-is-camel">What is Camel?</h3>
-<p>Camel is an open-source integration Java framework that enables you to easily integrate various systems consuming or producing data.
-But I&rsquo;m not going deep into Camel, as I believe if you are reading this you already know <a href="https://camel.apache.org/">Apache Camel</a>.
-In this article, I&rsquo;m having the Camel running inside a Spring Boot application to take advantage of all the benefits of developing with Spring Boot.</p>
-<h2 id="hands-on">Hands-on</h2>
-<p>Spring Boot Actuator is a set of features provided to monitor and manage applications. It includes built-in endpoints and features that allow to monitor and interact with the applications at runtime.
-It collects and exposes various metrics about the application&rsquo;s performance and behavior, such as memory usage, CPU usage, garbage collection statistics, HTTP request metrics, etc.</p>
-<h3 id="metrics-endpoint">Metrics endpoint</h3>
-<p>To use Spring Boot Actuator you need to add to your pom.xml:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-actuator<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
-</span></span></code></pre></div><p>or on your build.graddle</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>dependencies <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    implementation <span style="color:#e6db74">&#39;org.springframework.boot:spring-boot-starter-actuator&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>to have the HTTP endpoints active you also need to add on your pom.xml:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>org.springframework.boot<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>spring-boot-starter-web<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
-</span></span></code></pre></div><p>or on your build.graddle</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-groovy" data-lang="groovy"><span style="display:flex;"><span>dependencies <span style="color:#f92672">{</span>
-</span></span><span style="display:flex;"><span>    implementation <span style="color:#e6db74">&#39;org.springframework.boot:spring-boot-starter-web&#39;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">}</span>
-</span></span></code></pre></div><p>By default, the Spring Actuator will have the following endpoints active under the <code>/actuator</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;_links&#34;</span>: {
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;self&#34;</span>: {
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;href&#34;</span>: <span style="color:#e6db74">&#34;http://localhost:8080/actuator&#34;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;templated&#34;</span>: <span style="color:#66d9ef">false</span>
-</span></span><span style="display:flex;"><span>        },
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;health&#34;</span>: {
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;href&#34;</span>: <span style="color:#e6db74">&#34;http://localhost:8080/actuator/health&#34;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;templated&#34;</span>: <span style="color:#66d9ef">false</span>
-</span></span><span style="display:flex;"><span>        },
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;health-path&#34;</span>: {
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;href&#34;</span>: <span style="color:#e6db74">&#34;http://localhost:8080/actuator/health/{*path}&#34;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;templated&#34;</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>If you want to expose other endpoints you need to declare them on your <code>application.properties</code>, e.g.:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>management.<span style="color:#a6e22e">endpoints</span>.<span style="color:#a6e22e">web</span>.<span style="color:#a6e22e">exposure</span>.<span style="color:#a6e22e">include</span><span style="color:#f92672">=</span>health,metrics
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;_links&#34;</span>: {
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;self&#34;</span>: {
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;href&#34;</span>: <span style="color:#e6db74">&#34;http://localhost:8080/actuator&#34;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;templated&#34;</span>: <span style="color:#66d9ef">false</span>
-</span></span><span style="display:flex;"><span>        },
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;health&#34;</span>: {
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;href&#34;</span>: <span style="color:#e6db74">&#34;http://localhost:8080/actuator/health&#34;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;templated&#34;</span>: <span style="color:#66d9ef">false</span>
-</span></span><span style="display:flex;"><span>        },
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;health-path&#34;</span>: {
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;href&#34;</span>: <span style="color:#e6db74">&#34;http://localhost:8080/actuator/health/{*path}&#34;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;templated&#34;</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>        },
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;metrics-requiredMetricName&#34;</span>: {
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;href&#34;</span>: <span style="color:#e6db74">&#34;http://localhost:8080/actuator/metrics/{requiredMetricName}&#34;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;templated&#34;</span>: <span style="color:#66d9ef">true</span>
-</span></span><span style="display:flex;"><span>        },
-</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;metrics&#34;</span>: {
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;href&#34;</span>: <span style="color:#e6db74">&#34;http://localhost:8080/actuator/metrics&#34;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;templated&#34;</span>: <span style="color:#66d9ef">false</span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>You can check more about it on <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html#actuator.endpoints.exposing">Spring Boot Actuator documentation</a>.</p>
-<p>In the <code>/actuator/metrics</code> you can see all the metrics available and you can check the metrics on the endpoint <code>/actuator/metrics/{requiredMetricName}</code>, e.g.:
-for <code>/actuator/metrics/jvm.classes.loaded</code> we&rsquo;ll have a response similar to this:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;jvm.classes.loaded&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;description&#34;</span>: <span style="color:#e6db74">&#34;The number of classes that are currently loaded in the Java virtual machine&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;baseUnit&#34;</span>: <span style="color:#e6db74">&#34;classes&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;measurements&#34;</span>: [
-</span></span><span style="display:flex;"><span>        {
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;statistic&#34;</span>: <span style="color:#e6db74">&#34;VALUE&#34;</span>,
-</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&#34;value&#34;</span>: <span style="color:#ae81ff">9611</span>
-</span></span><span style="display:flex;"><span>        }
-</span></span><span style="display:flex;"><span>    ],
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;availableTags&#34;</span>: []
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>You can also custom name on the path, instead of <code>/actuator</code>, I prefer the  <code>/monitoring</code>.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>management.<span style="color:#a6e22e">endpoints</span>.<span style="color:#a6e22e">web</span>.<span style="color:#a6e22e">base</span><span style="color:#f92672">-</span>path<span style="color:#f92672">=/</span>monitoring
-</span></span></code></pre></div><p>But Prometheus doesn&rsquo;t use this format to collect metrics, so we need to add the <code>icrometer-registry-prometheus</code> dependency to have an endpoint compatible with Prometheus .</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-xml" data-lang="xml"><span style="display:flex;"><span><span style="color:#f92672">&lt;dependency&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;groupId&gt;</span>io.micrometer<span style="color:#f92672">&lt;/groupId&gt;</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">&lt;artifactId&gt;</span>micrometer-registry-prometheus<span style="color:#f92672">&lt;/artifactId&gt;</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">&lt;/dependency&gt;</span>
-</span></span></code></pre></div><p>and also add on your <code>application.properties</code></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>management.<span style="color:#a6e22e">endpoints</span>.<span style="color:#a6e22e">web</span>.<span style="color:#a6e22e">exposure</span>.<span style="color:#a6e22e">include</span><span style="color:#f92672">=</span>health,metrics,prometheus
-</span></span></code></pre></div><p>So calling on our browser the http://localhost:8080/monitoring/prometheus we&rsquo;ll get:</p>
-<pre tabindex="0"><code># HELP http_server_requests_active_seconds_max  
-# TYPE http_server_requests_active_seconds_max gauge
-http_server_requests_active_seconds_max{exception=&#34;none&#34;,method=&#34;GET&#34;,outcome=&#34;SUCCESS&#34;,status=&#34;200&#34;,uri=&#34;UNKNOWN&#34;,} 0.027983583
-# HELP http_server_requests_active_seconds  
-# TYPE http_server_requests_active_seconds summary
-http_server_requests_active_seconds_active_count{exception=&#34;none&#34;,method=&#34;GET&#34;,outcome=&#34;SUCCESS&#34;,status=&#34;200&#34;,uri=&#34;UNKNOWN&#34;,} 1.0
-http_server_requests_active_seconds_duration_sum{exception=&#34;none&#34;,method=&#34;GET&#34;,outcome=&#34;SUCCESS&#34;,status=&#34;200&#34;,uri=&#34;UNKNOWN&#34;,} 0.02796725
-...
-</code></pre><p>Right now our application is ready to integrate with Prometheus, so let&rsquo;s do it.</p>
-<h3 id="prometheus-configuration">Prometheus Configuration</h3>
-<p>So let&rsquo;s create the Prometheus configuration file, the prometheus.yml.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">global</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">scrape_interval</span>: <span style="color:#ae81ff">15s</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">scrape_configs</span>:
-</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">job_name</span>: <span style="color:#e6db74">&#39;prometheus&#39;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">static_configs</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">targets</span>: [<span style="color:#e6db74">&#39;127.0.0.1:9090&#39;</span>]
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span>  - <span style="color:#f92672">job_name</span>: <span style="color:#e6db74">&#39;my-app&#39;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">metrics_path</span>: <span style="color:#e6db74">&#39;/monitoring/prometheus&#39;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">static_configs</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#f92672">targets</span>: [<span style="color:#e6db74">&#39;my-app:8080&#39;</span>]
-</span></span></code></pre></div><p>We have defined the interval that Prometheus will collect metrics, in the example above it&rsquo;s in every 15 seconds.
-Then we have defined 2 jobs:</p>
-<ul>
-<li>For Prometheus itself;</li>
-<li>For our application, note that we&rsquo;ve defined the endpoint to collect the metrics (<code>/monitoring/prometheus</code>).
-Note that we&rsquo;ve defined the <code>metrics_path</code> for the <code>my-app</code> and not for <code>prometheus</code>, because <code>prometheus</code> uses the default endpoint  <code>/metrics</code>.</li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">version</span>: <span style="color:#e6db74">&#39;3.8&#39;</span>
-</span></span><span style="display:flex;"><span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">networks</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">metrics</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">name</span>: <span style="color:#ae81ff">metrics</span>
-</span></span><span style="display:flex;"><span><span style="color:#f92672">services</span>:
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">my-app</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">build</span>:
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">context</span>: <span style="color:#ae81ff">.</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#f92672">dockerfile</span>: <span style="color:#ae81ff">Dockerfile</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">container_name</span>: <span style="color:#ae81ff">my-app</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;8080:8080&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">networks</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">metrics</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">./files:/usr/app/files</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#f92672">prometheus</span>:
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">image</span>: <span style="color:#ae81ff">prom/prometheus</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">ports</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#e6db74">&#34;9090:9090&#34;</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">volumes</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">./prometheus/config:/etc/prometheus</span>
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">./prometheus/database:/prometheus</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">command</span>:
-</span></span><span style="display:flex;"><span>      - --<span style="color:#ae81ff">config.file=/etc/prometheus/prometheus.yml</span>
-</span></span><span style="display:flex;"><span>      - --<span style="color:#ae81ff">storage.tsdb.path=/prometheus</span>
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">networks</span>:
-</span></span><span style="display:flex;"><span>      - <span style="color:#ae81ff">metrics</span>
-</span></span></code></pre></div><h3 id="camel-metrics">Camel Metrics</h3>
-<p>To collect Camel metrics we&rsquo;ll need to tweak the <code>CamelContext</code>, so we&rsquo;ll provide:</p>
-<ul>
-<li>a route policy factory that creates Micrometer route policies for monitoring Camel routes</li>
-<li>and a message history factory that creates <code>Micrometer</code> message history for monitoring message flows in Camel routes.
-As an example:</li>
-</ul>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Configuration</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span> <span style="color:#66d9ef">class</span> <span style="color:#a6e22e">CamelConfiguration</span> {
-</span></span><span style="display:flex;"><span>  <span style="color:#a6e22e">@Bean</span>
-</span></span><span style="display:flex;"><span>  <span style="color:#66d9ef">public</span> CamelContextConfiguration <span style="color:#a6e22e">camelContextConfiguration</span>() {
-</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#66d9ef">new</span> CamelContextConfiguration() {
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">beforeApplicationStart</span>(CamelContext camelContext) {
-</span></span><span style="display:flex;"><span>        camelContext.<span style="color:#a6e22e">addRoutePolicyFactory</span>(<span style="color:#66d9ef">new</span> MicrometerRoutePolicyFactory());
-</span></span><span style="display:flex;"><span>        camelContext.<span style="color:#a6e22e">setMessageHistoryFactory</span>(<span style="color:#66d9ef">new</span> MicrometerMessageHistoryFactory());
-</span></span><span style="display:flex;"><span>      }
-</span></span><span style="display:flex;"><span>      <span style="color:#a6e22e">@Override</span>
-</span></span><span style="display:flex;"><span>      <span style="color:#66d9ef">public</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">afterApplicationStart</span>(CamelContext camelContext) {
-</span></span><span style="display:flex;"><span>      }
-</span></span><span style="display:flex;"><span>    };
-</span></span><span style="display:flex;"><span>  }
-</span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>Here are some of the metrics available by default:</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
-</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;names&#34;</span>: [
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;camel.exchanges.external.redeliveries&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;camel.exchanges.failed&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;camel.exchanges.failures.handled&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;camel.exchanges.succeeded&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;camel.exchanges.total&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;camel.routes.added&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;camel.routes.reloaded&#34;</span>,
-</span></span><span style="display:flex;"><span>        <span style="color:#e6db74">&#34;camel.routes.running&#34;</span>,
-</span></span><span style="display:flex;"><span>    <span style="color:#960050;background-color:#1e0010">...</span>
-</span></span><span style="display:flex;"><span>    ]
-</span></span><span style="display:flex;"><span>}    
-</span></span></code></pre></div><h3 id="metrics">Metrics</h3>
-<p>Prometheus has 4 types of metrics:</p>
-<ul>
-<li><strong>Counter</strong></li>
-<li><strong>Gauge</strong></li>
-<li><strong>Histogram</strong></li>
-<li><strong>Summary</strong>
-To understand more about these types of metrics please refer to <a href="https://prometheus.io/docs/concepts/metric_types/">Prometheus documentation</a>.</li>
-</ul>
-<h3 id="create-custom-metrics">Create custom metrics</h3>
-<p>You create your metrics, directly on the Camel route or by code.</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>from(<span style="color:#e6db74">&#34;file://somecrazydirectory&#34;</span>)
-</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">process</span>(processor)
-</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">to</span>(<span style="color:#e6db74">&#34;micrometer:counter:app.crazy.metric?increment=1&#34;</span>)
-</span></span><span style="display:flex;"><span>.<span style="color:#a6e22e">to</span>(<span style="color:#e6db74">&#34;mock:result&#34;</span>);
-</span></span></code></pre></div><div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span><span style="color:#a6e22e">@Autowired</span>
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span> MeterRegistry meterRegistry;
-</span></span><span style="display:flex;"><span>...
-</span></span><span style="display:flex;"><span><span style="color:#66d9ef">var</span> counter <span style="color:#f92672">=</span> Counter.<span style="color:#a6e22e">builder</span>(<span style="color:#e6db74">&#34;app.crazy.metric&#34;</span>) 
-</span></span><span style="display:flex;"><span>                     .<span style="color:#a6e22e">description</span>(<span style="color:#e6db74">&#34;My Crazy Metric&#34;</span>)
-</span></span><span style="display:flex;"><span>                     .<span style="color:#a6e22e">register</span>(meterRegistry);
-</span></span><span style="display:flex;"><span>counter.<span style="color:#a6e22e">increment</span>();
-</span></span><span style="display:flex;"><span>...
-</span></span></code></pre></div>]]></description>
-      
+      <description>Introduction Why monitoring? In software engineering monitoring plays an important role in fault detection, performance improvements, the health of an application, resource planning, and based on the previous continuous improvements of the application. Having an application in a live environment it&amp;rsquo;s important to have observability to understand how our application behaves and also for a quick response.&#xA;How can we do it? We have several ways and tools at our disposal that we can use to monitor an application:</description>
     </item>
-    
-    
-    
     <item>
-      <title>The gentle art of giving feedback!</title>
+      <title>🗣 The gentle art of giving feedback!</title>
       <link>https://medalhas.github.io/posts/the-gentle-art-of-giving-feedback/</link>
       <pubDate>Fri, 31 Mar 2023 22:28:12 +0000</pubDate>
-      
       <guid>https://medalhas.github.io/posts/the-gentle-art-of-giving-feedback/</guid>
-      <description><![CDATA[<h2 id="what-is-feedback-and-why-is-important">What is feedback and why is important?</h2>
-<p>Feedback, by definition, is information given to someone about their performance or behavior to help them to improve and thrive in the future.</p>
-<h2 id="positive-feedback-vs-negative-feedback">Positive feedback vs Negative feedback</h2>
-<p>Commonly we use the terms positive feedback or negative feedback, I don&rsquo;t love those terms, good feedback can&rsquo;t be negative.</p>
-<p>I prefer to split them by the objective, so we have:</p>
-<ul>
-<li>Growth feedback</li>
-<li>Praise feedback</li>
-</ul>
-<h3 id="growth-feedback">Growth feedback</h3>
-<p>They have different objectives, the first one is to help the subject to improve and grow in their career, it&rsquo;s fundamental for a manager to give growth feedback.
-One common mistake is to confuse feedback with a reprimand, this is important to maintain the focus on the objective of the feedback, as it has the goal for the other party to listen, understand and take actions to improve the performance or the behavior, so the communication must be clear, with the right tone and the right message.</p>
-<h4 id="tone-of-voice">Tone of Voice</h4>
-<p>Your tone of voice expresses your emotions or feelings and encompasses not only the words you choose but also the way deliver them.
-The way you speak a message is as important as the message itself. It means that you can convey different meanings or emotions based on the tone of your voice, even if you use the same words.  Therefore, when delivering a message, paying attention to both the words and the tone you use is essential to ensure that your message is received as intended.</p>
-<p>Even if the message itself is well-crafted, if it is delivered in an aggressive tone, the receiver will most likely react defensively, and the intended meaning may be lost.
-The amygdala, the part of the brain responsible for processing emotions, will be the first to respond to a message delivered in an aggressive tone. However, to ensure that the intended message is understood, it is crucial to communicate with the prefrontal cortex, the part of the brain responsible for rational thinking.</p>
-<p>In conclusion, the way you deliver a message is just as crucial as the message itself, and it is important to keep in mind that the tone in which you deliver the message can either facilitate or hinder effective communication. By being mindful of your tone of voice, you can improve your ability to give feedback effectively to others.</p>
-<h4 id="how-to-build-your-message">How to build your message?</h4>
-<p>The Situation-Behavior-Impact (SBI) framework is a simple and effective way to give feedback. It consists of three parts:</p>
-<ol>
-<li><strong>Situation</strong>: Explain the context where the behavior occurred, this helps to set the stage for the feedback and helps the receiver to understand the specific situation where the behavior was observed.</li>
-<li><strong>Behavior</strong>: Explain the observed behavior, be objective and limited to facts, and keep out opinions or judgments.</li>
-<li><strong>Impact</strong>: This is the effect or consequence of the behavior, explain how the behavior impacted others or the situation.</li>
-</ol>
-<p>Using this framework will help you to deliver very specific, objective, and constructive feedback that helps the receiver understand the impact of their behavior and how to improve it.</p>
-<h3 id="praise-feedback">Praise feedback</h3>
-<p>Forgotten by some managers and overused by others, praise feedback has the goal to:</p>
-<ul>
-<li>Motivate</li>
-<li>Build confidence</li>
-<li>Encourage the good behavior</li>
-</ul>
-<p>With that being said those three factors will increase the productivity of an individual or the team, they&rsquo;ll feel that their work/behavior was appreciated and awareness that they are on the right path and will be more confident to take more risks and encourage them to repeat the good behavior.</p>
-<p>I&rsquo;ve started this section by saying that some managers overused it, and this can be dangerous and counterproductive in the long term.
-When praise feedback is given too often or without meaningful substance, it can lead to a culture of complacency, where individuals expect to be praised for the most basic tasks. And in the long term can lead to a decrease in motivation and effort, as individuals may feel that their efforts are already being recognized and appreciated, and therefore they may not see the need to strive for better performance.</p>
-<p>When giving praise feedback we can use the same Situation-Behavior-Impact (SBI) framework described previously. Don&rsquo;t just say &ldquo;good job&rdquo;, be specific about the situation and behavior and explain the positive impact.</p>
-]]></description>
-      
+      <description>What is feedback and why is important? Feedback, by definition, is information given to someone about their performance or behavior to help them to improve and thrive in the future.&#xA;Positive feedback vs Negative feedback Commonly we use the terms positive feedback or negative feedback, I don&amp;rsquo;t love those terms, good feedback can&amp;rsquo;t be negative.&#xA;I prefer to split them by the objective, so we have:&#xA;Growth feedback Praise feedback Growth feedback They have different objectives, the first one is to help the subject to improve and grow in their career, it&amp;rsquo;s fundamental for a manager to give growth feedback.</description>
     </item>
-    
-    
-    
     <item>
-      <title>Thoughts About Remote Work</title>
+      <title>🏠 Thoughts About Remote Work</title>
       <link>https://medalhas.github.io/posts/thoughts-about-remote-work/</link>
       <pubDate>Sun, 15 Mar 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://medalhas.github.io/posts/thoughts-about-remote-work/</guid>
-      <description><![CDATA[<h2 id="summary">Summary</h2>
-<p>The Covid-19 vírus force us to make some changes in our lives, one of them it’s to stay safe at home and favor the remote work.</p>
-<p>This is a subject that caught my attention recently as I work daily with people spread across remote locations and us as a team had to adapt.</p>
-<p>Working remotely has many advantages, like the time we save in commuting, optimize the focus time as we can fewer interruptions, more environment-friendly, people can be better distributed across the countries and not so concentrated in big urban areas and other many more that I just can’t remember.</p>
-<p>I must advise you that I am not a fan of remote work as I miss the contact with the team, but I see it as inevitable in the future.</p>
-<p>But it also has many challenges, the lack of social interaction with teammates could lead to a less sense of belonging and affect the teamwork, the home has too many distractions and it demands great discipline, communication also can be challenging as it sometimes it’s just easier to talk or draw a picture.</p>
-<p>Some actions can help you face these challenges:</p>
-<ul>
-<li>Have a dedicated and appropriate space to work;</li>
-<li>Create a routine as you’re going to the office, set a wake-up hour, take a bath and dress up, so that you have a work mindset;</li>
-<li>Set hours to start and stop working;</li>
-<li>Try to go to the cafe or take lunch with a friend, socialize with others.</li>
-<li>Make sure you have access to all the tools you need to perform your work (VPN or cloud)</li>
-<li>Choose the proper tools for communicating and collaborate with your teammates (BlueJeans, Slack, Zoom, Miro).</li>
-</ul>
-<p>It’s important to have your home office well defined, it should be a quiet space without distractions. This is important for you to achieve the focus and take advantage of working at home and be free of office distractions.</p>
-<p>Communication with your teammates should be clear so be aware to use proper tools, like a headset with a microphone, be sure to mute your mic when your teammates are talking. It’s important to have your camera on to be more engaged with the team.</p>
-<p>The set a schedule it’s also an essential issue as it force you to have a discipline to time to start but also, and not less important, to have time to stop as we don’t want to burnout.</p>
-<h2 id="stay-at-home-with-kids">Stay at home with kids</h2>
-<p>At this time the challenges are even bigger because we should avoid contact with other people and because schools are closed I have to stay at home with the kids.</p>
-<p>In my case, an 11-year-old girl and 5-year-old boy, so at this point taking care of kids and work, looks like two incompatible ideas. I’m in a mix of kind of worried and kind of curious and challenged how it’s going to work.</p>
-<p>So I’ve started to I’ve explained to them that although I’m at home I’m working and we worked together in an agreement when they can interrupt me. I have the luck that my kids are very mature for their age but they’re kids anyway.</p>
-<p>I will see how it goes…</p>
-<h2 id="some-tools-that-can-help-you">Some tools that can help you</h2>
-<ul>
-<li><a href="https://slack.com/">Slack</a></li>
-<li><a href="https://www.bluejeans.com/">BlueJeans</a></li>
-<li><a href="https://www.zoom.us/">Zoom</a></li>
-<li><a href="https://miro.com/">Miro</a></li>
-<li><a href="https://funretro.io/">FunRetro</a></li>
-</ul>
-]]></description>
-      
+      <description>Summary The Covid-19 vírus force us to make some changes in our lives, one of them it’s to stay safe at home and favor the remote work.&#xA;This is a subject that caught my attention recently as I work daily with people spread across remote locations and us as a team had to adapt.&#xA;Working remotely has many advantages, like the time we save in commuting, optimize the focus time as we can fewer interruptions, more environment-friendly, people can be better distributed across the countries and not so concentrated in big urban areas and other many more that I just can’t remember.</description>
     </item>
-    
-    
-    
-    <item>
-      <title>About me</title>
-      <link>https://medalhas.github.io/about/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://medalhas.github.io/about/</guid>
-      <description><![CDATA[<p>My name is <strong>Luís Medalhas</strong> and Engineer Lead on <a href="https://www.farfetch.com/">Farfetch</a> and a career since 1998. This site is a tool to express some thoughts about several subjects that I care.
-To write is a way to structure my thougths and investigate, some of them reflect personal experience.</p>
-]]></description>
-      
-    </item>
-    
-    
-    
-    
-    
-    
   </channel>
 </rss>

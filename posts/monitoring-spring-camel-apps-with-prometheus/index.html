@@ -1,197 +1,58 @@
 <!DOCTYPE html>
-<html class="" lang="en-us"><head>
-    <meta name="description" content="Luis Medalhas's memory dump articles about leadership, technology, programming, software engineering">
-    <meta name="google-site-verification" content="6ydVZtPwj1szt2r3lO27WPRR4r6OQAU4nIlrcmnKzko" />
-    
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5FMQD173ST"></script>
-    <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-5FMQD173ST');
-    </script>
-
-    
-    <meta name="viewport" content="width=device-width" />
-    <meta http-equiv="Content-Type" content="text/html;charset=UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=7" />
-
-    <link
-    rel="icon"
-    href='/favicon.png'
-/>
-<link
-    rel="shortcut icon"
-    href='/favicon.ico'
-    type="image/x-icon"
-/>
-<link
-    rel="apple-touch-icon"
-    href='/apple-touch-icon.png'
-/>
-
-<title>
-        
-            Monitoring a Camel application with Prometheus  &ndash;
-        
-        The Code Chronicle
-    </title>
-
-    
-    <link href="/symbols-nerd-font/symbols-nerd-font.css" rel="stylesheet" integrity="sha512-oFb3ogOmd+IwAZvDNg3gx7/fVHPoLDtp6fRw0C8xUzVbco+PjGDHLzNnwL+kjhbyFoVTgthqMwWCEXu5i0j9RQ=="/>
-    <link href="/jetbrains-mono/jetbrains-mono.css" rel="stylesheet" integrity="sha512-T3SxbmtFN/Tr63M0gaLH/fK7DPIjx+MzQTvXTDa3/3GcSEwHida8gX2lLdUtaGmQfNd0FEsmimGDlBeGBQHBrg=="/>
-
-    
-    
-    <link type="text/css" rel="stylesheet" href=https://medalhas.github.io/css/styles.966ea99c939d44392cc309ada43976ce7ebc973d4cb2a1f7ddf8a0d09a4c8e304936be446a2bcf213a18ee0c2241ab123cc313847d90d014d6972c6e95e16b08.css integrity="sha512-lm6pnJOdRDkswwmtpDl2zn68lz1MsqH33fig0JpMjjBJNr5EaivPIToY7gwiQasSPMMThH2Q0BTWlyxuleFrCA==" />
-<meta name="author" content="" />
-
-    
-        <meta name="keywords" content='actuator, camel, grafana, java, monitoring, prometheus, spring, springboot' />
-    
-    
-        <meta name="description" content="itoring? In software engineering monitoring plays an important role in fault detection, performance improvements, the health of an application, resource planning, and based on the previous continuous improvements of the application. Having an application in a live environment it&amp;rsquo;s important to have observability to understand how our application behaves and also for a quick response.
-How can we do it? We have several ways and tools at our disposal that we can use to monitor an application:" />
-    
-
-<meta property="og:site_name"
-    content='The Code Chronicle' />
-
-    <meta property="og:title" content="Monitoring a Camel application with Prometheus" />
-    <meta property="og:type" content="article" />
-    
-    <meta
-        property="article:author" content="" />
-    <meta
-        property="article:published_time"
-        content='2024-03-31T18:36:02Z&#43;0100' />
-    
-        
-            <meta property="article:tag" content="actuator" />
-        
-            <meta property="article:tag" content="camel" />
-        
-            <meta property="article:tag" content="grafana" />
-        
-            <meta property="article:tag" content="java" />
-        
-            <meta property="article:tag" content="monitoring" />
-        
-            <meta property="article:tag" content="prometheus" />
-        
-            <meta property="article:tag" content="spring" />
-        
-            <meta property="article:tag" content="springboot" />
-        
-    
-    <meta property="og:url" content="https://medalhas.github.io/posts/monitoring-spring-camel-apps-with-prometheus/" />
-    
-    
-    <meta property="og:image"
-        content="https://medalhas.github.io/img/icon.svg" />
-    
-        <meta property="og:description" content="Introduction Why monitoring? In software engineering monitoring plays an important role in fault detection, performance improvements, the health of an applicati" />
-    
-
-<meta name="twitter:card" content="summary_large_image" />
-<meta property="twitter:domain"
-      content='medalhas.github.io'
-/>
-<meta property="twitter:url" content="https://medalhas.github.io/posts/monitoring-spring-camel-apps-with-prometheus/" />
+<html lang="en-us" dir="ltr">
+<head>
+  <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+<title>📈 Monitoring a Camel application with Prometheus | The Code Chronicle</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
 
 
-    <meta name="twitter:title" content="Monitoring a Camel application with Prometheus" />
-    
-    
-    
-    <meta name="twitter:image"
-        content="https://medalhas.github.io/img/icon.svg" />
-    
-        <meta name="twitter:description" content="Introduction Why monitoring? In software engineering monitoring plays an important role in fault detection, performance improvements, the health of an applicati" />
-    
-
-<link rel="manifest" href="/manifest/index.json" />
-</head>
+      <link rel="stylesheet" href="/css/main.min.39dd6082070fec94cbb16ed2a2b632c09ae7bb2bf574ba0e40a55f77e1a56674.css" integrity="sha256-Od1gggcP7JTLsW7SorYywJrnuyv1dLoOQKVfd&#43;GlZnQ=" crossorigin="anonymous">
 
 
-<body>
-        <div id="baseContainer"><header class="">
-<div class="titleAndSearchContainer">
-        <div id="titleContainer">
-            <div class="rightOfLogo">
-                <div class="titleAndHamburger">
-                    <h1>
-                        <a class="unstyledLink" href="/">The Code Chronicle</a>
-                    </h1>
-                    
-                        <label id="hamburger-menu" for="main-nav-toggler">
-                            &#xf85b;
-                        </label>
-                    
-                </div>
-                <div id="wide_nav"><nav>
-    
-        <input type="checkbox" id="main-nav-toggler" />
-    
-    <ul id="main-nav">
-        <li><a href="/">Home</a></li>
-        
-            <li><a href="/posts">Posts</a></li>
-        
-        
-        
-        
-        
-        
-        
-            <li><a href="/tags">Tags</a></li>
-        
-        
-            <li><a href="/about">About Me</a></li>
-        
+      <script src="/js/main.23cd0c7d837263b9eaeb96ee2d9ccfa2969daa3fa00fa1c1fe8701a9b87251a1.js" integrity="sha256-I80MfYNyY7nq65buLZzPopadqj&#43;gD6HB/ocBqbhyUaE=" crossorigin="anonymous"></script>
 
-        
-    </ul>
-</nav>
-</div>
-            </div>
-        </div>
-        <div class="search">
-    <input id="searchbar" type="text" placeholder='Search' />
-    <button type="button" class="nerdbutton" onclick="newSearch()">&#xf002;</button>
-</div>
+<meta name="google-site-verification" content="6ydVZtPwj1szt2r3lO27WPRR4r6OQAU4nIlrcmnKzko" />
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5FMQD173ST"></script>
 <script>
-    function newSearch() {
-        let term = searchbar.value.trim();
-        if (!term) return;
-        location.href = `/search?q=${term}`;
-    }
-    searchbar.onkeyup = (ev) => {if (ev.keyCode == 13) newSearch()};
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+
+gtag('config', 'G-5FMQD173ST');
 </script>
 
-    </div>
-    
-
+</head>
+<body>
+  <header>
+    <header class="header">
+    <nav class="navbar">
+        <div class="container">
+            <a class="navbar-brand" href="/">📰 The Code Chronicle</a>
+            <ul class="navbar-nav">
+                <li class="nav-item"><a class="nav-link" href="/posts">Posts</a></li>
+                <li class="nav-item"><a class="nav-link" href="/bookmarks">My collection</a></li>
+                <li class="nav-item"><a class="nav-link" href="/about-me">About Me</a></li>
+            </ul>
+        </div>
+    </nav>
 </header>
-<div id="contentContainer">
-                <div id="content">
-                    <main>
-<article class="card single">
-    
-        <h1>Monitoring a Camel application with Prometheus</h1>
-    
-    
-        <p class="date">
-            <span title='Date'> </span>
-    2024-03-31
 
-</p>
+  </header>
+  <main>
+    
+  <div class="article">
+    <h1>📈 Monitoring a Camel application with Prometheus</h1>
+
     
     
-    
-    
-    <div><h2 id="introduction">Introduction</h2>
+    <div class="date">
+      <time datetime="2024-03-31T18:36:02&#43;01:00">March 31, 2024</time>
+    </div>
+    <h2 id="introduction">Introduction</h2>
 <h3 id="why-monitoring">Why monitoring?</h3>
 <p>In software engineering monitoring plays an important role in fault detection, performance improvements, the health of an application, resource planning, and based on the previous continuous improvements of the application.
 Having an application in a live environment it&rsquo;s important to have observability to understand how our application behaves and also for a quick response.</p>
@@ -304,15 +165,14 @@ for <code>/actuator/metrics/jvm.classes.loaded</code> we&rsquo;ll have a respons
 </span></span></code></pre></div><p>and also add on your <code>application.properties</code></p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-java" data-lang="java"><span style="display:flex;"><span>management.<span style="color:#a6e22e">endpoints</span>.<span style="color:#a6e22e">web</span>.<span style="color:#a6e22e">exposure</span>.<span style="color:#a6e22e">include</span><span style="color:#f92672">=</span>health,metrics,prometheus
 </span></span></code></pre></div><p>So calling on our browser the http://localhost:8080/monitoring/prometheus we&rsquo;ll get:</p>
-<pre tabindex="0"><code># HELP http_server_requests_active_seconds_max  
-# TYPE http_server_requests_active_seconds_max gauge
-http_server_requests_active_seconds_max{exception=&#34;none&#34;,method=&#34;GET&#34;,outcome=&#34;SUCCESS&#34;,status=&#34;200&#34;,uri=&#34;UNKNOWN&#34;,} 0.027983583
-# HELP http_server_requests_active_seconds  
-# TYPE http_server_requests_active_seconds summary
-http_server_requests_active_seconds_active_count{exception=&#34;none&#34;,method=&#34;GET&#34;,outcome=&#34;SUCCESS&#34;,status=&#34;200&#34;,uri=&#34;UNKNOWN&#34;,} 1.0
-http_server_requests_active_seconds_duration_sum{exception=&#34;none&#34;,method=&#34;GET&#34;,outcome=&#34;SUCCESS&#34;,status=&#34;200&#34;,uri=&#34;UNKNOWN&#34;,} 0.02796725
-...
-</code></pre><p>Right now our application is ready to integrate with Prometheus, so let&rsquo;s do it.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-t" data-lang="t"><span style="display:flex;"><span><span style="color:#75715e"># HELP http_server_requests_active_seconds_max  </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># TYPE http_server_requests_active_seconds_max gauge</span>
+</span></span><span style="display:flex;"><span>http_server_requests_active_seconds_max{exception<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;none&#34;</span>,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;GET&#34;</span>,outcome<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;SUCCESS&#34;</span>,status<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;200&#34;</span>,uri<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UNKNOWN&#34;</span>,} <span style="color:#ae81ff">0.027983583</span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># HELP http_server_requests_active_seconds  </span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e"># TYPE http_server_requests_active_seconds summary</span>
+</span></span><span style="display:flex;"><span>http_server_requests_active_seconds_active_count{exception<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;none&#34;</span>,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;GET&#34;</span>,outcome<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;SUCCESS&#34;</span>,status<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;200&#34;</span>,uri<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UNKNOWN&#34;</span>,} <span style="color:#ae81ff">1.0</span>
+</span></span><span style="display:flex;"><span>http_server_requests_active_seconds_duration_sum{exception<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;none&#34;</span>,method<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;GET&#34;</span>,outcome<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;SUCCESS&#34;</span>,status<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;200&#34;</span>,uri<span style="color:#f92672">=</span><span style="color:#e6db74">&#34;UNKNOWN&#34;</span>,} <span style="color:#ae81ff">0.02796725</span>
+</span></span></code></pre></div><p>Right now our application is ready to integrate with Prometheus, so let&rsquo;s do it.</p>
 <h3 id="prometheus-configuration">Prometheus Configuration</h3>
 <p>So let&rsquo;s create the Prometheus configuration file, the prometheus.yml.</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-yml" data-lang="yml"><span style="display:flex;"><span><span style="color:#f92672">global</span>:
@@ -423,63 +283,33 @@ To understand more about these types of metrics please refer to <a href="https:/
 </span></span><span style="display:flex;"><span>                     .<span style="color:#a6e22e">register</span>(meterRegistry);
 </span></span><span style="display:flex;"><span>counter.<span style="color:#a6e22e">increment</span>();
 </span></span><span style="display:flex;"><span>...
-</span></span></code></pre></div></div>
-</article>
-
-    <hr />
-    <p class="articleTagsContainer">
-        <span> </span>
-        <strong>Tags:</strong>
-        
-            <a
-                
-                href="/tags/actuator">#actuator</a>
-        
-            <a
-                
-                href="/tags/camel">#camel</a>
-        
-            <a
-                
-                href="/tags/grafana">#grafana</a>
-        
-            <a
-                
-                href="/tags/java">#java</a>
-        
-            <a
-                
-                href="/tags/monitoring">#monitoring</a>
-        
-            <a
-                
-                href="/tags/prometheus">#prometheus</a>
-        
-            <a
-                
-                href="/tags/spring">#spring</a>
-        
-            <a
-                
-                href="/tags/springboot">#springboot</a>
-        
-    </p>
+</span></span></code></pre></div>
+  </div>
+  
+  <div>
+    <div>Tags:</div>
+    <ul class="taxonomy">
+        <li><a href="/tags/monitoring/">Monitoring</a></li>
+        <li><a href="/tags/prometheus/">Prometheus</a></li>
+        <li><a href="/tags/actuator/">Actuator</a></li>
+        <li><a href="/tags/camel/">Camel</a></li>
+        <li><a href="/tags/grafana/">Grafana</a></li>
+        <li><a href="/tags/spring/">Spring</a></li>
+        <li><a href="/tags/springboot/">Springboot</a></li>
+        <li><a href="/tags/java/">Java</a></li>
+    </ul>
+  </div>
 
 
-
-
-
-
-                    </main><footer>
-<p>Luís Medalhas</p>
-<p><small>
-        Theme based on <a href='https://gitlab.com/gabmus/hugo-ficurinia'>Ficurinia theme</a> for <a href='https://gohugo.io'>Hugo</a> by <a href='https://gabmus.org'>Gabriele Musco</a>. Licensed under <a href='https://www.gnu.org/licenses/agpl-3.0.html'>GNU AGPLv3</a>.
-    </small></p>
-</footer>
+  </main>
+  <footer>
+    <div class="footer">
+    <ul class="navbar-nav">
+        <li class="nav-item"><a class="nav-link" href="/posts">Posts</a></li>
+        <li class="nav-item"><a class="nav-link" href="/bookmarks">My collection</a></li>
+        <li class="nav-item"><a class="nav-link" href="/about-me">About Me</a></li>
+    </ul>
 </div>
-            </div>
-        </div>
-
-
+  </footer>
 </body>
 </html>
