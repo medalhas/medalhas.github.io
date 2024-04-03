@@ -9,10 +9,10 @@
 <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inconsolata:wght@200..900&display=swap" rel="stylesheet">
 
 
-      <link rel="stylesheet" href="/css/main.min.39dd6082070fec94cbb16ed2a2b632c09ae7bb2bf574ba0e40a55f77e1a56674.css" integrity="sha256-Od1gggcP7JTLsW7SorYywJrnuyv1dLoOQKVfd&#43;GlZnQ=" crossorigin="anonymous">
+      <link rel="stylesheet" href="/css/main.min.6f9255f38e98980d25a53c9f35cb5244f6fac2a06909c8120b989759e74eed10.css" integrity="sha256-b5JV846YmA0lpTyfNctSRPb6wqBpCcgSC5iXWedO7RA=" crossorigin="anonymous">
 
 
-      <script src="/js/main.23cd0c7d837263b9eaeb96ee2d9ccfa2969daa3fa00fa1c1fe8701a9b87251a1.js" integrity="sha256-I80MfYNyY7nq65buLZzPopadqj&#43;gD6HB/ocBqbhyUaE=" crossorigin="anonymous"></script>
+      <script src="/js/main.f2979a93a325fecf9605263bd141398a311c8e23388ed7dcff74f92f7e632866.js" integrity="sha256-8peak6Ml/s&#43;WBSY70UE5ijEcjiM4jtfc/3T5L35jKGY=" crossorigin="anonymous"></script>
 
 <meta name="google-site-verification" content="6ydVZtPwj1szt2r3lO27WPRR4r6OQAU4nIlrcmnKzko" />
     
@@ -66,14 +66,17 @@ Having an application in a live environment it&rsquo;s important to have observa
 </ul>
 <p>There are tools for all tastes and styles that cover all the topics above, in the article I&rsquo;ll focus on the last 3 and we&rsquo;re going to use Prometheus and Grafana to accomplish this.</p>
 <h3 id="what-is-prometheus">What is Prometheus?</h3>
-<p>Prometheus is an <a href="https://github.com/prometheus/prometheus">open-source tool written in Go</a> and created by SoundCloud to improve the reliability of their services, and they always return to the same topic, observability.
+<p>Prometheus is an <a href="https://github.com/prometheus/prometheus" target="_blank">open-source tool written in Go</a>
+ and created by SoundCloud to improve the reliability of their services, and they always return to the same topic, observability.
 Prometheus has a built-in time series database, powered by query language (PromQL), alerts and alert manager, and a pull-based metric collection mechanism.</p>
-<p>If you are interested in the story of Prometheus, you can check <a href="https://youtu.be/rT4fJNbfe14">Prometheus: The Documentary</a>.</p>
+<p>If you are interested in the story of Prometheus, you can check <a href="https://youtu.be/rT4fJNbfe14" target="_blank">Prometheus: The Documentary</a>
+.</p>
 <h3 id="what-is-grafana">What is Grafana?</h3>
 <p>Grafana is an open-source analytics and visualization platform designed for monitoring and observability. Users may query, visualize metrics, and create dashboards and alerts. Connects to various data sources, but It&rsquo;s a perfect marriage for Prometheus.</p>
 <h3 id="what-is-camel">What is Camel?</h3>
 <p>Camel is an open-source integration Java framework that enables you to easily integrate various systems consuming or producing data.
-But I&rsquo;m not going deep into Camel, as I believe if you are reading this you already know <a href="https://camel.apache.org/">Apache Camel</a>.
+But I&rsquo;m not going deep into Camel, as I believe if you are reading this you already know <a href="https://camel.apache.org/" target="_blank">Apache Camel</a>
+.
 In this article, I&rsquo;m having the Camel running inside a Spring Boot application to take advantage of all the benefits of developing with Spring Boot.</p>
 <h2 id="hands-on">Hands-on</h2>
 <p>Spring Boot Actuator is a set of features provided to monitor and manage applications. It includes built-in endpoints and features that allow to monitor and interact with the applications at runtime.
@@ -140,7 +143,8 @@ It collects and exposes various metrics about the application&rsquo;s performanc
 </span></span><span style="display:flex;"><span>        }
 </span></span><span style="display:flex;"><span>    }
 </span></span><span style="display:flex;"><span>}
-</span></span></code></pre></div><p>You can check more about it on <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html#actuator.endpoints.exposing">Spring Boot Actuator documentation</a>.</p>
+</span></span></code></pre></div><p>You can check more about it on <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html#actuator.endpoints.exposing" target="_blank">Spring Boot Actuator documentation</a>
+.</p>
 <p>In the <code>/actuator/metrics</code> you can see all the metrics available and you can check the metrics on the endpoint <code>/actuator/metrics/{requiredMetricName}</code>, e.g.:
 for <code>/actuator/metrics/jvm.classes.loaded</code> we&rsquo;ll have a response similar to this:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
@@ -267,7 +271,8 @@ As an example:</li>
 <li><strong>Gauge</strong></li>
 <li><strong>Histogram</strong></li>
 <li><strong>Summary</strong>
-To understand more about these types of metrics please refer to <a href="https://prometheus.io/docs/concepts/metric_types/">Prometheus documentation</a>.</li>
+To understand more about these types of metrics please refer to <a href="https://prometheus.io/docs/concepts/metric_types/" target="_blank">Prometheus documentation</a>
+.</li>
 </ul>
 <h3 id="create-custom-metrics">Create custom metrics</h3>
 <p>You create your metrics, directly on the Camel route or by code.</p>
@@ -288,16 +293,16 @@ To understand more about these types of metrics please refer to <a href="https:/
   
   <div>
     <div>Tags:</div>
-    <ul class="taxonomy">
-        <li><a href="/tags/monitoring/">Monitoring</a></li>
-        <li><a href="/tags/prometheus/">Prometheus</a></li>
-        <li><a href="/tags/actuator/">Actuator</a></li>
-        <li><a href="/tags/camel/">Camel</a></li>
-        <li><a href="/tags/grafana/">Grafana</a></li>
-        <li><a href="/tags/spring/">Spring</a></li>
-        <li><a href="/tags/springboot/">Springboot</a></li>
-        <li><a href="/tags/java/">Java</a></li>
-    </ul>
+    <div class="taxonomy">
+        <div class="taxonomy-item"><a href="/tags/monitoring/">#Monitoring</a></div>
+        <div class="taxonomy-item"><a href="/tags/prometheus/">#Prometheus</a></div>
+        <div class="taxonomy-item"><a href="/tags/actuator/">#Actuator</a></div>
+        <div class="taxonomy-item"><a href="/tags/camel/">#Camel</a></div>
+        <div class="taxonomy-item"><a href="/tags/grafana/">#Grafana</a></div>
+        <div class="taxonomy-item"><a href="/tags/spring/">#Spring</a></div>
+        <div class="taxonomy-item"><a href="/tags/springboot/">#Springboot</a></div>
+        <div class="taxonomy-item"><a href="/tags/java/">#Java</a></div>
+    </div>
   </div>
 
 
